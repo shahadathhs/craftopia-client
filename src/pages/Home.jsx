@@ -1,7 +1,10 @@
+import WebName from "../components/WebName";
+
+
 const Home = () => {
   return (
     <div>
-      <p>This is Home</p>
+      <WebName />
     </div>
   );
 };
