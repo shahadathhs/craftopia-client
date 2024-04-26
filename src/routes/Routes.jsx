@@ -18,6 +18,7 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+        loader: () => fetch('/Review.json')
       },
       {
         path: '/artCraft',

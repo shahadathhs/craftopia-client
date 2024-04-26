@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "John Smith",
+    "image": "https://i.ibb.co/8mTs9GT/pikaso-texttoimage-John-Smith.jpg",
+    "review": "Craftopia has been my go-to store for all my crafting needs! The variety of products they offer, especially in paper crafts and glass art, is impressive. Not to mention, their customer service is top-notch. Highly recommended!",
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "name": "Sarah Johnson",
+    "image": "https://i.ibb.co/hLXjdwj/pikaso-texttoimage-Sarah-Johnson.jpg",
+    "review": "I stumbled upon Craftopia while searching for unique crafting supplies, and I'm so glad I did! The quality of their products is outstanding, and their website is a treasure trove of inspiration. I've been a loyal customer ever since!",
+    "rating": 5
+  },
+  {
+    "id": 3,
+    "name": "David Thompson",
+    "image": "https://i.ibb.co/sgSSw0n/pikaso-texttoimage-David-Thompson-profile-picture.jpg",
+    "review": "As a beginner in the world of crafting, I was intimidated at first. But Craftopia made the journey so much easier! Their tutorials and blog articles have been invaluable, and their staff is always ready to assist with any questions. Thank you, Craftopia!",
+    "rating": 4.5
+  },
+  {
+    "id": 4,
+    "name": "Emily Martinez",
+    "image": "https://i.ibb.co/VLH4bdq/pikaso-texttoimage-Emily-Martinez.jpg",
+    "review": "Craftopia is a paradise for craft lovers like me! Their selection of paper crafts and glass art supplies is unmatched, and I love how they constantly update their inventory with new and exciting products. It's like Christmas every time I visit their website!",
+    "rating": 5
+  },
+  {
+    "id": 5,
+    "name": "Michael Harris",
+    "image": "https://i.ibb.co/nPynZFR/pikaso-texttoimage-Michael-Harrisz.jpg",
+    "review": "Craftopia doesn't just sell products; they sell inspiration. Every time I browse through their website, I come away with new ideas and projects to try. It's amazing how they foster creativity and community among crafters. Keep up the fantastic work, Craftopia!",
+    "rating": 4.8
+  }
+]
