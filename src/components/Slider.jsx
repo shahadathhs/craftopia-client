@@ -36,7 +36,7 @@ const Slider = () => {
         <SwiperSlide>
           <div className="hero">
             <img 
-            className='w-full h-[300px] md:h-[400px] lg:h-[500px] mx-auto rounded-xl' 
+            className='w-full h-[400px] lg:h-[500px] mx-auto rounded-xl' 
             src={slide1} 
             />
             <p className="hero-content max-w-md text-center font-bold text-xl text-violet-600 bg-white mx-4 rounded-xl">
@@ -48,7 +48,7 @@ const Slider = () => {
        <SwiperSlide>
           <div className="hero">
             <img 
-            className='w-full h-[300px] md:h-[400px] lg:h-[500px] mx-auto rounded-xl' 
+            className='w-full h-[400px] lg:h-[500px] mx-auto rounded-xl' 
             src={slide2} 
             />
             <p className="hero-content max-w-md text-center font-bold text-xl text-violet-600 bg-white mx-4 rounded-xl">
@@ -60,7 +60,7 @@ const Slider = () => {
         <SwiperSlide>
           <div className="hero">
             <img 
-            className='w-full h-[300px] md:h-[400px] lg:h-[500px] mx-auto rounded-xl' 
+            className='w-full h-[400px] lg:h-[500px] mx-auto rounded-xl' 
             src={slide3} 
             />
             <p className="hero-content max-w-md text-center font-bold text-xl text-violet-600 bg-white mx-4 rounded-xl">
@@ -72,7 +72,7 @@ const Slider = () => {
         <SwiperSlide>
           <div className="hero">
             <img 
-            className='w-full h-[300px] md:h-[400px] lg:h-[500px] mx-auto rounded-xl' 
+            className='w-full h-[400px] lg:h-[500px] mx-auto rounded-xl' 
             src={slide4} 
             />
             <p className="hero-content max-w-md text-center font-bold text-xl text-violet-600 bg-white mx-4 rounded-xl">
