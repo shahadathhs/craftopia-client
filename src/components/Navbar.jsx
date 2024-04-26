@@ -25,59 +25,59 @@ const Navbar = () => {
         <li><NavLink 
         className={({ isActive }) => isActive 
         ? 
-        'btn btn-outline border-0 bg-white text-violet-600' 
+        'btn btn-outline border-0 bg-white text-violet-600 m-1' 
         : 
-        'btn btn-outline border-0 bg-white text-orange-500'
+        'btn btn-outline border-0 bg-white text-orange-500 m-1'
         }
         to="/">Home</NavLink></li>
         
         <li><NavLink 
         className={({ isActive }) => isActive
         ? 
-        'btn btn-outline border-0 bg-white text-violet-600' 
+        'btn btn-outline border-0 bg-white text-violet-600 m-1' 
         : 
-        'btn btn-outline border-0 bg-white text-orange-500'
+        'btn btn-outline border-0 bg-white text-orange-500 m-1'
         }
         to="/artCraft">Art & Craft</NavLink></li>
         
         <li><NavLink 
         className={({ isActive }) =>  isActive 
         ? 
-        'btn btn-outline border-0 bg-white text-violet-600' 
+        'btn btn-outline border-0 bg-white text-violet-600 m-1' 
         : 
-        'btn btn-outline border-0 bg-white text-orange-500'
+        'btn btn-outline border-0 bg-white text-orange-500 m-1'
         }
         to="/addCraft">Add Craft</NavLink></li>
 
         <li><NavLink 
         className={({ isActive }) =>  isActive 
         ? 
-        'btn btn-outline border-0 bg-white text-violet-600' 
+        'btn btn-outline border-0 bg-white text-violet-600 m-1' 
         : 
-        'btn btn-outline border-0 bg-white text-orange-500'
+        'btn btn-outline border-0 bg-white text-orange-500 m-1'
         }
         to="/myArtCraft">My Art & Craft</NavLink></li>
     </>
 
   const linksEnd= 
     <>
-        <NavLink 
+        <li><NavLink 
         className={({ isActive }) => isActive 
         ? 
-        'btn btn-outline border-0 bg-white text-violet-600 mr-2' 
+        'btn btn-outline border-0 bg-white text-violet-600 m-1' 
         : 
-        'btn btn-outline border-0 bg-white text-orange-500 mr-2'
+        'btn btn-outline border-0 bg-white text-orange-500 m-1'
         }
-        to='/login'>Login</NavLink>
+        to='/login'>Login</NavLink></li>
 
-        <NavLink 
+        <li><NavLink 
         className={({ isActive }) => isActive 
         ? 
-        'btn btn-outline border-0 bg-white text-violet-600 mr-2' 
+        'btn btn-outline border-0 bg-white text-violet-600 m-1' 
         : 
-        'btn btn-outline border-0 bg-white text-orange-500 mr-2'
+        'btn btn-outline border-0 bg-white text-orange-500 m-1'
         }
-        to='/register'>Register</NavLink>
+        to='/register'>Register</NavLink></li>
     </>
 
   return (
@@ -90,6 +90,7 @@ const Navbar = () => {
           </label>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-36 font-bold text-gray-500">
             {links}
+            {linksEnd}
           </ul>
         </div>
         <Link to='/' className="text-2xl md:text-3xl text-blue-700 font-semibold p-0">
@@ -104,7 +105,11 @@ const Navbar = () => {
       </div>
       {/* Navbar end */}
       <div className="navbar-end">
-        {linksEnd}
+        <div className="hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 gap-1 border-1 font-bold text-gray-500">
+            {linksEnd}
+          </ul>
+        </div>
         <label className='cursor-pointer grid place-items-center'>
           <input
             type='checkbox'
