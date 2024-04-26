@@ -10,10 +10,11 @@ const WebName = () => {
   }
 
   return (
-    <div className="text-center my-6 bg-base-200 p-4">
-      <h1 className='font-bold text-2xl'>
+    <div>
+      <p className='text-2xl text-violet-600 font-bold'>Welcome to our store</p>
+      <h1 className='font-bold text-2xl text-orange-500'>
         Craftopia: {' '}
-        <span className='text-orange-500'>
+        <span className='text-violet-500'>
           {/* Style will be inherited from the parent element */}
           <Typewriter
             words={['Haven', 'of', 'Glass', 'and', 'Paper', 'Art']}
