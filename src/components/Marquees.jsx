@@ -2,19 +2,20 @@ import Marquee from "react-fast-marquee";
 
 const Marquees = () => {
   return (
-    <div className="flex flex-col md:flex-row gap-2">
+    <div>
       <Marquee 
         pauseOnHover
-        className="max-w-md mx-auto text-violet-600 font-bold"
+        className="mx-auto font-bold"
+        >
+          Welcome to Craftopia: Your Haven of Creativity and Inspiration!
+      </Marquee>
+      <Marquee 
+        delay={2}
+        pauseOnHover
+        className="mx-auto text-violet-600 font-bold"
         >
           Explore Endless Crafting Possibilities at Craftopia: Where Every Idea Flourishes.
-        </Marquee>
-        <Marquee 
-        pauseOnHover
-        className="max-w-md mx-auto text-orange-500 font-bold"
-        >
-          Unleash Your Creativity with Craftopias Premium Crafting Supplies and Expert Guidance.
-        </Marquee>
+      </Marquee>
     </div>
   );
 };
