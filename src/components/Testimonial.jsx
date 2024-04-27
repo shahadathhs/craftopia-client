@@ -1,16 +1,15 @@
 import Lottie from "lottie-react";
 import testimonial from "../assets/lottiesfile/testimonilas.json";
 import PropTypes from 'prop-types';
-import review from "../assets/review.jpg"
+import reviewImg from "../assets/review.jpg"
 
-const Testimonials = ({reviews}) => {
-
+const Testimonial = ({reviews}) => {
   return (
     <div className="my-1 md:my-8">
       <div className="hero">
         <Lottie className="h-[300px] md:h-screen object-fill" animationData={testimonial} loop={true} />
         <div className="hero-content">
-        <img className="mx-auto rounded-xl" src={review} alt="" />
+        <img className="mx-auto rounded-xl" src={reviewImg} alt="" />
         </div>
       </div>
       <div className="container flex flex-col items-center justify-center mx-auto lg:flex-row lg:flex-wrap lg:justify-evenly lg:px-10">
@@ -33,7 +32,7 @@ const Testimonials = ({reviews}) => {
             </div>
             <div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-blue-600 text-gray-50">
               {/* Image */}
-              <img src={review.image} alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500 bg-gray-300" />
+              <img src={review.image} alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500" />
               {/* name */}
               <p className="text-xl font-semibold leading-tight">{review.name}</p>
             </div>
@@ -45,8 +44,8 @@ const Testimonials = ({reviews}) => {
   );
 };
 
-export default Testimonials;
+export default Testimonial;
 
-Testimonials.propTypes = {
+Testimonial.propTypes = {
   reviews: PropTypes.array,
 }

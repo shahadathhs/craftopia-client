@@ -3,7 +3,7 @@ import { Typewriter } from 'react-simple-typewriter'
 const WebName = () => {
 
   return (
-    <div className='flex flex-col md:flex-row gap-2 justify-center'>
+    <div className='flex flex-col md:flex-row gap-2 justify-center mx-auto items-center'>
       <p className='text-2xl text-violet-600 font-bold'>Welcome to our store</p>
       <h1 className='font-bold text-2xl text-orange-500'>
         Craftopia: {' '}

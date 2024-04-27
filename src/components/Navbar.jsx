@@ -1,7 +1,44 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContest } from './../Providers/AuthProviders';
+import { RxAvatar } from "react-icons/rx";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+
+  // user management
+  const {user, logOut} = useContext(AuthContest);
+  
+  const handleSignOut = () =>{
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Logout!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut()
+          .then(() => {
+            Swal.fire({
+              title: "Successful!",
+              text: "You have been successfully logout.",
+              icon: "success"
+            });
+          })
+          .catch(() => {
+            Swal.fire({
+              title: "Unsuccessful!",
+              text: "Au error detected. Try again",
+              icon: "error"
+            });
+          }); 
+      }
+    });
+  }
+  
+  // mode toggle
   const [mode, setMode] = useState('light')
 
   const handleToggle = event => {
@@ -20,62 +57,64 @@ const Navbar = () => {
     document.querySelector('html').setAttribute('data-theme', localMode)
   }, [mode])
 
+  //center nav
   const links = 
     <>
         <li><NavLink 
         className={({ isActive }) => isActive 
         ? 
-        'btn btn-outline border-0 bg-white text-violet-600 m-1' 
+        'btn btn-sm btn-outline border-0 bg-white text-violet-600 m-1' 
         : 
-        'btn btn-outline border-0 bg-white text-orange-500 m-1'
+        'btn btn-sm btn-outline border-0 bg-white text-orange-500 m-1'
         }
         to="/">Home</NavLink></li>
         
         <li><NavLink 
         className={({ isActive }) => isActive
         ? 
-        'btn btn-outline border-0 bg-white text-violet-600 m-1' 
+        'btn btn-sm btn-outline border-0 bg-white text-violet-600 m-1' 
         : 
-        'btn btn-outline border-0 bg-white text-orange-500 m-1'
+        'btn btn-sm btn-outline border-0 bg-white text-orange-500 m-1'
         }
         to="/artCraft">Art & Craft</NavLink></li>
         
         <li><NavLink 
         className={({ isActive }) =>  isActive 
         ? 
-        'btn btn-outline border-0 bg-white text-violet-600 m-1' 
+        'btn btn-sm btn-outline border-0 bg-white text-violet-600 m-1' 
         : 
-        'btn btn-outline border-0 bg-white text-orange-500 m-1'
+        'btn btn-sm btn-outline border-0 bg-white text-orange-500 m-1'
         }
         to="/addCraft">Add Craft</NavLink></li>
 
         <li><NavLink 
         className={({ isActive }) =>  isActive 
         ? 
-        'btn btn-outline border-0 bg-white text-violet-600 m-1' 
+        'btn btn-sm btn-outline border-0 bg-white text-violet-600 m-1' 
         : 
-        'btn btn-outline border-0 bg-white text-orange-500 m-1'
+        'btn btn-sm btn-outline border-0 bg-white text-orange-500 m-1'
         }
         to="/myArtCraft">My Art & Craft</NavLink></li>
     </>
 
+  //end nav
   const linksEnd= 
     <>
         <li><NavLink 
         className={({ isActive }) => isActive 
         ? 
-        'btn btn-outline border-0 bg-white text-violet-600 m-1' 
+        'btn btn-sm btn-outline border-0 bg-white text-violet-600 m-1' 
         : 
-        'btn btn-outline border-0 bg-white text-orange-500 m-1'
+        'btn btn-sm btn-outline border-0 bg-white text-orange-500 m-1'
         }
         to='/login'>Login</NavLink></li>
 
         <li><NavLink 
         className={({ isActive }) => isActive 
         ? 
-        'btn btn-outline border-0 bg-white text-violet-600 m-1' 
+        'btn btn-sm btn-outline border-0 bg-white text-violet-600 m-1' 
         : 
-        'btn btn-outline border-0 bg-white text-orange-500 m-1'
+        'btn btn-sm btn-outline border-0 bg-white text-orange-500 m-1'
         }
         to='/register'>Register</NavLink></li>
     </>
@@ -90,7 +129,20 @@ const Navbar = () => {
           </label>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-36 font-bold text-gray-500">
             {links}
-            {linksEnd}
+            {/* users */}
+            <div>
+              {
+                user
+                ?
+                <div className="hidden">
+                   {/* user info in left side of navbar */}
+                </div>
+                :
+                <div>
+                  {linksEnd}
+                </div>
+              }
+            </div>
           </ul>
         </div>
         <Link to='/' className="text-2xl md:text-3xl text-blue-700 font-semibold p-0">
@@ -103,13 +155,56 @@ const Navbar = () => {
           {links}
         </ul>
       </div>
+      {/* Navbar center for sm */}
+      <div className="navbar-center flex md:hidden">
+        <p className="font-bold text-xl text-violet-600">CRAFTOPIA</p>
+      </div>
       {/* Navbar end */}
       <div className="navbar-end">
-        <div className="hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-1 border-1 font-bold text-gray-500">
-            {linksEnd}
-          </ul>
+        {/* user management */}
+        <div>
+          {
+            user
+            ?
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  {
+                    user.photoURL 
+                    ?
+                    <img src={user?.photoURL} />
+                    :
+                    <div className="flex justify-center text-2xl my-auto py-2 text-orange-500"><RxAvatar/></div>
+                  }
+                </div>
+              </label>
+              <ul tabIndex={0} className="menu menu-sm space-y-2 dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <li>
+                  <button className="btn btn-outline border-2 text-violet-600 hover:bg-orange-500 hover:border-0 hover:text-white">
+                    {
+                      user.displayName
+                      ?
+                      <div>
+                        <p>User Name:</p>
+                        <p>{user.displayName}</p>
+                      </div>
+                      :
+                      'User name not found'
+                    }
+                  </button>
+                </li>
+                <li>
+                  <button onClick={handleSignOut}  className="btn btn-sm btn-outline border-2 text-violet-600 hover:bg-orange-500 hover:border-0 hover:text-white">Logout</button>
+                </li>        
+              </ul>
+            </div>
+            :
+            <ul className="hidden lg:flex menu menu-horizontal px-1 gap-1 border-1 font-bold text-gray-500">
+              {linksEnd}
+            </ul>
+          }
         </div>
+        {/* mode toggle */}
         <label className='cursor-pointer grid place-items-center'>
           <input
             type='checkbox'
