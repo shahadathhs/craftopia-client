@@ -8,6 +8,7 @@ import ArtCraft from "../pages/ArtCraft";
 import AddCraft from './../pages/AddCraft';
 import MyArtCraft from "../pages/MyArtCraft";
 import PrivateRoutes from "./PrivateRoutes";
+import UserCraftDetails from "../pages/UserCraftDetails";
 
 
 export const router = createBrowserRouter([
@@ -19,10 +20,7 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-        loader: () => fetch(
-          'http://localhost:5000/userCraft',
-          //'/Review.json',
-          )
+        loader: () => fetch('http://localhost:5000/userCraft')
       },
       {
         path: '/artCraft',
@@ -34,8 +32,12 @@ export const router = createBrowserRouter([
       },
       {
         path: '/myArtCraft',
-        //element: <MyArtCraft />,
         element: <PrivateRoutes><MyArtCraft /></PrivateRoutes>,
+      },
+      {
+        path: '/userCraftDetails/:id',
+        element: <PrivateRoutes><UserCraftDetails /></PrivateRoutes>,
+        loader: ({params}) => fetch(`http://localhost:5000/userCraft/${params.id}`) 
       },
       {
         path: '/login',

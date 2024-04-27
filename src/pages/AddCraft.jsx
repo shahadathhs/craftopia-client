@@ -27,7 +27,7 @@ const AddCraft = () => {
 
     const craftData = { 
       photo, itemName , subCategory, description, prize, rating, customization,
-      processingTime, stockStatus, name, craftEmail, 
+      processingTime, stockStatus, name, craftEmail,
       craftOwnerEmail, craftOwnerName, craftOwnerPhoto
     }
     console.table(craftData);

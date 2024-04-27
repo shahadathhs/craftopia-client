@@ -4,7 +4,7 @@ import Slider from "../components/Slider";
 //import Testimonial from "../components/Testimonial";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Bannar from "../components/Bannar";
-import CraftItems from './../components/CraftItems';
+import CraftItems from '../components/CraftItems';
 
 const Home = () => {
   const userCrafts = useLoaderData();

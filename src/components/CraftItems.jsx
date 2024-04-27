@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const CraftItems = ({userCrafts}) => {
-  userCrafts.map(userCraft => console.log(userCraft))
-
   return (
     <div>
+      {/* banner */}
       <div className="hero bg-base-200">
         <div className="hero-content text-center">
           <div className="max-w-md">
@@ -15,6 +15,7 @@ const CraftItems = ({userCrafts}) => {
           </div>
         </div>
       </div>
+      {/* card */}
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
         {
           userCrafts.slice(0, 6).map(userCraft =>
@@ -27,7 +28,7 @@ const CraftItems = ({userCrafts}) => {
                 <img alt="" src={userCraft.craftOwnerPhoto || "photo not found"} className="object-cover w-12 h-12 rounded-full shadow bg-gray-500" />
                 <div className="flex flex-col space-y-1">
                   <a rel="noopener noreferrer" href="#" className="text-sm font-semibold">{userCraft.craftOwnerName || "name not found"}</a>
-                  <span className="text-xs text-gray-600">{userCraft.craftOwnerEmail || "email not found"}</span>
+                  <span className="text-xs text-gray-600">{userCraft.craftOwnerEmail || userCraft.craftEmail}</span>
                 </div>
               </div>
               {/* card center */}
@@ -47,9 +48,10 @@ const CraftItems = ({userCrafts}) => {
                   </button>
                 </div>
                 <div className="flex space-x-2 text-sm text-gray-600">
-                  <button className='btn btn-outline text-violet-600'>
+                  <Link to={`/userCraftDetails/${userCraft._id}`}
+                  className='btn btn-outline text-violet-600'>
                     View Details
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
