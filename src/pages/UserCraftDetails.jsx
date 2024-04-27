@@ -43,7 +43,8 @@ const UserCraftDetails = () => {
                 </div>
                 {/* craft info on table */}
                 <div>
-                  <table className="table"><tbody>
+                  <table className="table text-violet-600">
+                    <tbody>
                       {/* row 1 */}
                       <tr className="hover">
                         <td>Sub-category</td>
