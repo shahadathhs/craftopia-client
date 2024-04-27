@@ -1,7 +1,12 @@
+import { useContext } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { AuthContest } from './../Providers/AuthProviders';
+import Swal from 'sweetalert2';
 
 
 const AddCraft = () => {
+  const { user } = useContext(AuthContest);
+
   const handleAddCraft = event => {
     event.preventDefault();
     const form = event.target;
@@ -15,14 +20,38 @@ const AddCraft = () => {
     const processingTime = form.processingTime.value;
     const stockStatus = form.stockStatus.value;
     const name = form.name.value;
-    const email = form.email.value;
+    const craftEmail = form.email.value;
+    const craftOwnerName = user.displayName;
+    const craftOwnerEmail = user.email;
+    const craftOwnerPhoto = user.photoURL;
 
     const craftData = { 
       photo, itemName , subCategory, description, prize, rating, customization,
-      processingTime, stockStatus, name, email
+      processingTime, stockStatus, name, craftEmail, 
+      craftOwnerEmail, craftOwnerName, craftOwnerPhoto
     }
     console.table(craftData);
-    form.reset()
+    //send data to the server
+    fetch('http://localhost:5000/userCraft', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(craftData)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log('User Craft Post/Add to Server', data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: 'Success!',
+            text: 'Craft Added Successfully',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          }) 
+        }
+        form.reset();
+      })
   }
 
   return (

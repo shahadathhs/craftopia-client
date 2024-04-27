@@ -1,12 +1,13 @@
 import { useLoaderData } from "react-router-dom";
 import OurWork from "../components/OurWork";
 import Slider from "../components/Slider";
-import Testimonial from "../components/Testimonial";
+//import Testimonial from "../components/Testimonial";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Bannar from "../components/Bannar";
+import CraftItems from './../components/CraftItems';
 
 const Home = () => {
-  const reviews = useLoaderData();
-  console.log(reviews);
+  const userCrafts = useLoaderData();
 
   return (
     <HelmetProvider>
@@ -16,13 +17,16 @@ const Home = () => {
         </Helmet>
         <div>
           <div className="my-6 bg-base-200 p-4">
-            <OurWork />
+            <Bannar />
           </div>
           <div className="my-6 bg-base-200 p-4">
             <Slider />
           </div>
           <div className="my-6 bg-base-200 p-4">
-            <Testimonial reviews={reviews} /> 
+            <OurWork />
+          </div>
+          <div className="my-6 bg-base-200 p-4">
+            <CraftItems userCrafts={userCrafts}></CraftItems>
           </div>
         </div>
       </div>

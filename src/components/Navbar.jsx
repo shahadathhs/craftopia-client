@@ -155,8 +155,8 @@ const Navbar = () => {
           {links}
         </ul>
       </div>
-      {/* Navbar center for sm */}
-      <div className="navbar-center flex md:hidden">
+      {/* Navbar center for sm/md */}
+      <div className="navbar-center flex lg:hidden">
         <p className="font-bold text-xl text-violet-600">CRAFTOPIA</p>
       </div>
       {/* Navbar end */}

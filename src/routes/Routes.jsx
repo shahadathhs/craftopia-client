@@ -19,7 +19,10 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-        loader: () => fetch('/Review.json')
+        loader: () => fetch(
+          'http://localhost:5000/userCraft',
+          //'/Review.json',
+          )
       },
       {
         path: '/artCraft',
