@@ -1,8 +1,17 @@
+import { Helmet, HelmetProvider } from "react-helmet-async";
+
 const CardMaking = () => {
   return (
-    <div>
-      <h2>This is Card making</h2>
-    </div>
+    <HelmetProvider>
+      <div>
+        <Helmet>
+          <title>Craftopia | Card Making</title>
+        </Helmet>
+        <div>
+        <h2>This is Card making</h2>
+        </div>
+      </div>
+    </HelmetProvider>
   );
 };
 

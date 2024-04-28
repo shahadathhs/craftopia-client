@@ -1,8 +1,17 @@
+import { Helmet, HelmetProvider } from "react-helmet-async";
+
 const PaperQuilling = () => {
   return (
-    <div>
-      <h2>This is Paper Quilling</h2>
-    </div>
+    <HelmetProvider>
+      <div>
+        <Helmet>
+          <title>Craftopia | Paper Quilling & Origami</title>
+        </Helmet>
+        <div>
+        <h2>This is Paper Quilling</h2>
+        </div>
+      </div>
+    </HelmetProvider>
   );
 };
 

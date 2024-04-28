@@ -62,7 +62,7 @@ const OurWork = () => {
               {/* Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 {/* Glass Painting */}
-                <Link to="/glassDying" className="max-w-xs p-6 rounded-md shadow-md bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-50 mx-auto">
+                <Link to="/glassPainting" className="max-w-xs p-6 rounded-md shadow-md bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-50 mx-auto">
                   <h2 className="block text-xl font-semibold tracking-widest uppercase text-violet-600 dark:text-violet-400">
                     Glass Painting
                   </h2>
@@ -71,7 +71,7 @@ const OurWork = () => {
                   </p>
                 </Link>
                 {/* Lamp Working */}
-                <Link to="/glassPainting" className="max-w-xs p-6 rounded-md shadow-md bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-50 mx-auto">
+                <Link to="/lampWorking" className="max-w-xs p-6 rounded-md shadow-md bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-50 mx-auto">
                   <h2 className="block text-xl font-semibold tracking-widest uppercase text-violet-600 dark:text-violet-400">
                     Lamp Working
                   </h2>
@@ -80,7 +80,7 @@ const OurWork = () => {
                   </p>
                 </Link>
                 {/* Glass Dying & Staining */}
-                <Link to="/lampWorking" className="max-w-xs p-6 rounded-md shadow-md bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-50 mx-auto">
+                <Link to="/glassDying" className="max-w-xs p-6 rounded-md shadow-md bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-50 mx-auto">
                   <h2 className="block text-xl font-semibold tracking-widest uppercase text-violet-600 dark:text-violet-400">
                     Glass Dying & Staining
                   </h2>

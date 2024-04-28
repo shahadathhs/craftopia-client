@@ -6,6 +6,7 @@ import Bannar from "../components/Bannar";
 import CraftItems from '../components/CraftItems';
 import Stats from "../components/Stats";
 import Faq from "../components/Faq";
+import Features from "../components/Features";
 
 const Home = () => {
   const userCrafts = useLoaderData();
@@ -29,6 +30,9 @@ const Home = () => {
           </div>
           <div className="my-6 bg-base-200 p-4">
             <CraftItems userCrafts={userCrafts}></CraftItems>
+          </div>
+          <div className="my-6 bg-base-200 p-4">
+            <Features />
           </div>
           <div className="my-6 bg-base-200 p-4">
             <Faq />
