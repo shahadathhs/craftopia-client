@@ -16,6 +16,7 @@ import ScrapBooking from './../pages/PaperArt/ScrapBooking';
 import GlassDying from './../pages/GlassArt/GlassDying';
 import GlassPainting from './../pages/GlassArt/GlassPainting';
 import LampWorking from "../pages/GlassArt/LampWorking";
+import ManualCraftDetails from "../pages/ManualCraftDetails";
 
 
 export const router = createBrowserRouter([
@@ -90,6 +91,11 @@ export const router = createBrowserRouter([
         path: '/lampWorking',
         element: <LampWorking />,
         loader: () => fetch('http://localhost:5000/manualCraft')
+      },
+      {
+        path: '/manualCraft/:id',
+        element: <ManualCraftDetails />,
+        loader: ({params}) => fetch(`http://localhost:5000/manualCraft/${params.id}`) 
       },
     ]
   },
