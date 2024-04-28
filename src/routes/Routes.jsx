@@ -33,6 +33,7 @@ export const router = createBrowserRouter([
       {
         path: '/myArtCraft',
         element: <PrivateRoutes><MyArtCraft /></PrivateRoutes>,
+        loader: () => fetch('http://localhost:5000/userCraft')
       },
       {
         path: '/userCraftDetails/:id',

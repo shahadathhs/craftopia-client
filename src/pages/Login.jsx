@@ -2,12 +2,12 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContest } from "../Providers/AuthProviders";
 import { useForm } from "react-hook-form";
-import { FaEye, FaEyeSlash, FaGoogle, FaGithub  } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGoogle, FaGithub, FaTwitter  } from 'react-icons/fa';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { login, googleLogin, githubLogin } = useContext(AuthContest);
+  const { login, googleLogin, githubLogin, twitterLogin } = useContext(AuthContest);
   const [showPassword, setShowPassword] = useState(false);
   const [loginError, setLoginError] = useState("");
   
@@ -143,10 +143,18 @@ const Login = () => {
             <br />
             {/* GitHub Login */}
             <button 
-              className="btn btn-outline border-2 text-violet-600 hover:bg-orange-500 hover:border-0 hover:text-white"
+              className="hidden btn btn-outline border-2 text-violet-600 hover:bg-orange-500 hover:border-0 hover:text-white"
               onClick={() => handleDirectLogin(githubLogin)}
             >
               <FaGithub />Login with GitHub
+            </button>
+            {/* Twitter Login */}
+            {/* <br /> */}
+            <button 
+              className="btn btn-outline border-2 text-violet-600 hover:bg-orange-500 hover:border-0 hover:text-white"
+              onClick={() => handleDirectLogin(twitterLogin)}
+            >
+              <FaTwitter />Login with Twitter
             </button>
           </div>
         </div>

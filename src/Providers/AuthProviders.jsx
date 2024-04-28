@@ -6,7 +6,8 @@ import {
   updateProfile,
   GithubAuthProvider,
   GoogleAuthProvider,
-  signInWithPopup, 
+  signInWithPopup,
+  TwitterAuthProvider, 
 } from 'firebase/auth';
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
@@ -17,6 +18,7 @@ export const AuthContest = createContext(null);
 // direct login auth providers
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
+const twitterProvider = new TwitterAuthProvider();
 
 const AuthProviders = ({children}) => {
   const [user, setUser] = useState(null);
@@ -54,6 +56,12 @@ const AuthProviders = ({children}) => {
     return signInWithPopup(auth, githubProvider);
   };
   
+  // twitter login
+  const twitterLogin = () => {
+    setLoading(true);
+    return signInWithPopup(auth, twitterProvider);
+  };
+
   // logout user
   const logOut = () => {
     setLoading(true);
@@ -74,7 +82,7 @@ const AuthProviders = ({children}) => {
   const authInfo = {
     user, setUser, loading, 
     createUser, updateUserProfile,
-    googleLogin, githubLogin,
+    googleLogin, githubLogin, twitterLogin,
     login, logOut,
   }
 

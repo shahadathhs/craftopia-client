@@ -19,15 +19,14 @@ const AddCraft = () => {
     const customization = form.customization.value;
     const processingTime = form.processingTime.value;
     const stockStatus = form.stockStatus.value;
-    const name = form.name.value;
-    const craftEmail = form.email.value;
+    //const craftEmail = form.email.value;
     const craftOwnerName = user.displayName;
     const craftOwnerEmail = user.email;
     const craftOwnerPhoto = user.photoURL;
 
     const craftData = { 
       photo, itemName , subCategory, description, prize, rating, customization,
-      processingTime, stockStatus, name, craftEmail,
+      processingTime, stockStatus, 
       craftOwnerEmail, craftOwnerName, craftOwnerPhoto
     }
     console.table(craftData);
@@ -150,7 +149,7 @@ const AddCraft = () => {
                   <input type="number" name="processingTime" placeholder="Enter Processing Time" className="input input-bordered w-full" required />
                 </div>
                 {/* Stock Status */}
-                <div>
+                <div className="col-span-1 md:col-span-2 w-full md:w-1/2 mx-auto">
                   <label className="label">
                     <span className="label-text">Stock Status : </span>
                   </label>
@@ -159,20 +158,13 @@ const AddCraft = () => {
                     <option>Made to Order</option>
                   </select>
                 </div>
-                {/* Name */}
-                <div>
-                  <label className="label">
-                    <span className="label-text">Name : </span>
-                  </label>
-                  <input type="text" name="name" placeholder="Enter Full Name" className="input input-bordered w-full" required />
-                </div>
                 {/* Email */}
-                <div className="col-span-1 md:col-span-2">
+                {/* <div>
                   <label className="label">
-                    <span className="label-text">Email : </span>
+                    <span className="label-text">Email : (Make sure to use same email every time you  add an craft) </span>
                   </label>
                   <input type="email" name="email" placeholder="Enter a valid email" className="input input-bordered w-full" required />
-                </div>
+                </div> */}
                 {/* Add button */}
                 <div className="col-span-1 md:col-span-2">
                   <input className="btn btn-outline text-violet-600  w-full" type="submit" value="Add Craft" />
