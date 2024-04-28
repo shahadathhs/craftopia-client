@@ -1,23 +1,62 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContest } from "../Providers/AuthProviders";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const MyArtCraft = () => {
   const userCrafts = useLoaderData();
   const { user } = useContext(AuthContest);
   const userEmail = user.email;
   
-  const result = userCrafts.filter(myCraft => {
+  const filterData = userCrafts.filter(myCraft => {
     return userEmail === myCraft.craftOwnerEmail
   });
-  console.log(result)
+  console.log(filterData)
+
+  const [crafts , setCrafts] = useState(filterData);
+
+  const handleCraftDelete = _id => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    })
+    .then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/userCraft/${_id}`, {
+          method: 'DELETE'
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log('delete data', data);
+            /* Print a message that indicates whether the operation deleted a document */
+            if (data.deletedCount === 1) {
+              console.log("Successfully deleted one craft.");
+              Swal.fire({
+                title: "Deleted!",
+                text: "Craft has been deleted.",
+                icon: "success"
+              });
+              const remaining = crafts.filter(craft => craft._id !== _id)
+              setCrafts(remaining)
+            } else {
+              console.log("No craft matched the query. Deleted 0 craft.");
+            }
+          })
+      }
+    })
+  }
 
   return (
     <HelmetProvider>
       <div>
         <Helmet>
-          <title>Craftopia | All Users Art & Craft</title>
+          <title>Craftopia | My Art & Craft</title>
         </Helmet>
         <div>
           {/* banner */}
@@ -35,7 +74,7 @@ const MyArtCraft = () => {
           {/* cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
             {
-              result.map(craft =>
+              crafts.map(craft =>
                 <div key={craft._id}
                 className="mx-auto rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
                   {/* Photo */}
@@ -79,16 +118,16 @@ const MyArtCraft = () => {
                     <div className="flex justify-between">
                       {/* delete button */}
                       <div className="text-sm dark:text-gray-400">
-                        <Link 
-                          className='btn btn-sm md:btn-md btn-outline font-bold text-green-500 dark:text-gray-400'>
-                          Update Craft
-                        </Link>
+                        <button onClick={() => handleCraftDelete(craft._id)} 
+                          className='btn btn-sm md:btn-md btn-outline font-bold text-red-500 dark:text-gray-400'>
+                          Delete Craft
+                        </button>
                       </div>
                       {/* update button */}
                       <div className="text-sm dark:text-gray-400">
-                        <Link 
-                          className='btn btn-sm md:btn-md btn-outline font-bold text-red-500 dark:text-gray-400'>
-                          Delete Craft
+                        <Link to={`/updateCraft/${craft._id}`}
+                          className='btn btn-sm md:btn-md btn-outline font-bold text-green-500 dark:text-gray-400'>
+                          Update Craft
                         </Link>
                       </div>
                     </div>

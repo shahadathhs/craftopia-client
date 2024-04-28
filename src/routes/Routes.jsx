@@ -9,6 +9,7 @@ import AddCraft from './../pages/AddCraft';
 import MyArtCraft from "../pages/MyArtCraft";
 import PrivateRoutes from "./PrivateRoutes";
 import UserCraftDetails from "../pages/UserCraftDetails";
+import UpdateCraft from "../pages/UpdateCraft";
 
 
 export const router = createBrowserRouter([
@@ -39,6 +40,11 @@ export const router = createBrowserRouter([
       {
         path: '/userCraftDetails/:id',
         element: <PrivateRoutes><UserCraftDetails /></PrivateRoutes>,
+        loader: ({params}) => fetch(`http://localhost:5000/userCraft/${params.id}`) 
+      },
+      {
+        path: '/updateCraft/:id',
+        element: <PrivateRoutes><UpdateCraft /></PrivateRoutes>,
         loader: ({params}) => fetch(`http://localhost:5000/userCraft/${params.id}`) 
       },
       {
