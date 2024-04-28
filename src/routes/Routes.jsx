@@ -10,6 +10,12 @@ import MyArtCraft from "../pages/MyArtCraft";
 import PrivateRoutes from "./PrivateRoutes";
 import UserCraftDetails from "../pages/UserCraftDetails";
 import UpdateCraft from "../pages/UpdateCraft";
+import CardMaking from "../pages/PaperArt/CardMaking";
+import PaperQuilling from '../pages/PaperArt/PaperQuilling';
+import ScrapBooking from './../pages/PaperArt/ScrapBooking';
+import GlassDying from './../pages/GlassArt/GlassDying';
+import GlassPainting from './../pages/GlassArt/GlassPainting';
+import LampWorking from "../pages/GlassArt/LampWorking";
 
 
 export const router = createBrowserRouter([
@@ -32,7 +38,7 @@ export const router = createBrowserRouter([
         path: '/addCraft',
         element: <PrivateRoutes><AddCraft /></PrivateRoutes>,
       },
-      {
+      { 
         path: '/myArtCraft',
         element: <PrivateRoutes><MyArtCraft /></PrivateRoutes>,
         loader: () => fetch('http://localhost:5000/userCraft')
@@ -54,6 +60,30 @@ export const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register />,
+      },
+      {
+        path: '/cardMaking',
+        element: <CardMaking />,
+      },
+      {
+        path: '/paperQuilling',
+        element: <PaperQuilling />,
+      },
+      {
+        path: '/scrapBooking',
+        element: <ScrapBooking />,
+      },
+      {
+        path: '/glassDying',
+        element: <GlassDying />,
+      },
+      {
+        path: '/glassPainting',
+        element: <GlassPainting />,
+      },
+      {
+        path: '/lampWorking',
+        element: <LampWorking />,
       },
     ]
   },
