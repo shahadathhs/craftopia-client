@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContest } from "../Providers/AuthProviders";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const MyArtCraft = () => {
   const userCrafts = useLoaderData();
@@ -15,9 +16,16 @@ const MyArtCraft = () => {
   console.log(result)
 
   return (
-    <div>
-      <h2>This is my art craft</h2>
-    </div>
+    <HelmetProvider>
+      <div>
+        <Helmet>
+          <title>Craftopia | All Users Art & Craft</title>
+        </Helmet>
+        <div>
+          My art and craft
+        </div>
+      </div>
+    </HelmetProvider>
   );
 };
 

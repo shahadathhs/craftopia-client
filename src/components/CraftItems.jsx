@@ -58,6 +58,13 @@ const CraftItems = ({userCrafts}) => {
           )
         }
       </div>
+      {/* view all button */}
+      <div className="pt-8 text-center">
+        <Link to="/artCraft"
+          className="btn btn-outline border-2 text-violet-600 hover:bg-orange-500 hover:border-0 hover:text-white">
+          View All Users Art & Craft
+        </Link>
+      </div>
     </div>
   );
 };
