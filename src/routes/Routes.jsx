@@ -64,26 +64,32 @@ export const router = createBrowserRouter([
       {
         path: '/cardMaking',
         element: <CardMaking />,
+        loader: () => fetch('http://localhost:5000/manualCraft')
       },
       {
         path: '/paperQuilling',
         element: <PaperQuilling />,
+        loader: () => fetch('http://localhost:5000/manualCraft')
       },
       {
         path: '/scrapBooking',
         element: <ScrapBooking />,
+        loader: () => fetch('http://localhost:5000/manualCraft')
       },
       {
         path: '/glassDying',
         element: <GlassDying />,
+        loader: () => fetch('http://localhost:5000/manualCraft')
       },
       {
         path: '/glassPainting',
         element: <GlassPainting />,
+        loader: () => fetch('http://localhost:5000/manualCraft')
       },
       {
         path: '/lampWorking',
         element: <LampWorking />,
+        loader: () => fetch('http://localhost:5000/manualCraft')
       },
     ]
   },
