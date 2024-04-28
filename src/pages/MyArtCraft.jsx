@@ -1,20 +1,41 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContest } from "../Providers/AuthProviders";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Swal from "sweetalert2";
 
 const MyArtCraft = () => {
-  const userCrafts = useLoaderData();
+  
+  
   const { user } = useContext(AuthContest);
   const userEmail = user.email;
   
-  const filterData = userCrafts.filter(myCraft => {
-    return userEmail === myCraft.craftOwnerEmail
-  });
-  console.log(filterData)
+  const userCrafts = useLoaderData();
 
-  const [crafts , setCrafts] = useState(filterData);
+  const [crafts , setCrafts] = useState([]);
+  const [displayCrafts, setDisplayCrafts] = useState([]);
+
+  const handleCraftsFilter = filter =>{
+    if(filter === 'all'){
+      setDisplayCrafts(crafts);
+    }
+    else if (filter === 'yes'){
+      const craftsYes = crafts.filter(craft=> craft.customization === 'Yes');
+      setDisplayCrafts(craftsYes);
+    }
+    else if(filter === 'no'){
+      const craftsNo = crafts.filter(craft => craft.customization === 'No');
+      setDisplayCrafts(craftsNo);
+    }
+  }
+
+  useEffect(() => {
+    const filterData = userCrafts.filter(myCraft => userEmail === myCraft.craftOwnerEmail);
+    console.log(filterData)
+    setCrafts(filterData);
+    setDisplayCrafts(filterData);
+      
+  }, [userCrafts,userEmail])
 
   const handleCraftDelete = _id => {
     Swal.fire({
@@ -68,13 +89,22 @@ const MyArtCraft = () => {
                 your one-stop destination to manage your masterpieces. Update, 
                 delete, and fine-tune your crafts with ease, putting you in control 
                 of your creative journey.</p>
+                {/* filter dropdown */}
+                <details className="dropdown">
+                  <summary className="m-1 btn btn-outline">Filter Your Craft By</summary>
+                  <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                    <li><a onClick={() => handleCraftsFilter('all')}>All</a></li>
+                    <li><a onClick={() => handleCraftsFilter('yes')}>Customization -YES</a></li>
+                    <li><a onClick={() => handleCraftsFilter('no')}>Customization -NO</a></li>
+                  </ul>
+                </details>
               </div>
             </div>
           </div>
           {/* cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-5">
             {
-              crafts.map(craft =>
+              displayCrafts.map(craft =>
                 <div key={craft._id}
                 className="mx-auto rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
                   {/* Photo */}
@@ -104,12 +134,10 @@ const MyArtCraft = () => {
                             <td>Stock Status:</td>
                             <td>{craft.stockStatus}</td>
                           </tr>
-                          {/* row customization
- */}
+                          {/* row customization*/}
                           <tr className="hover">
                             <td>Customization:</td>
-                            <td>{craft.customization
-}</td>
+                            <td>{craft.customization}</td>
                           </tr>
                         </tbody>
                       </table>
