@@ -57,7 +57,7 @@ const UpdateCraft = () => {
     <HelmetProvider>
       <div>
         <Helmet>
-          <title>Craftopia | Update Your Craft</title>
+          <title>Craftopia | Update Craft</title>
         </Helmet>
         <div className="my-4 bg-base-200 p-4">
           {/* Banner */}
@@ -154,7 +154,7 @@ const UpdateCraft = () => {
                 </div>
                 {/* Add button */}
                 <div className="col-span-1 md:col-span-2">
-                  <input className="btn btn-outline text-violet-600  w-full" type="submit" value="Add Craft" />
+                  <input className="btn btn-outline text-violet-600  w-full" type="submit" value="Update Craft" />
                 </div>
               </form>
             </div>

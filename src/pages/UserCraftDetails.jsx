@@ -37,7 +37,7 @@ const UserCraftDetails = () => {
                     <img alt="" src={userCraft.craftOwnerPhoto || "photo not found"} className="object-cover w-12 h-12 rounded-full shadow bg-gray-500" />
                     <div className="flex flex-col space-y-1">
                       <a rel="noopener noreferrer" href="#" className="text-sm font-semibold">{userCraft.craftOwnerName || "name not found"}</a>
-                      <span className="text-xs text-gray-600">{userCraft.craftOwnerEmail || userCraft.craftEmail}</span>
+                      <span className="text-xs text-gray-600">{userCraft.craftOwnerEmail || "email not found"}</span>
                     </div>
                   </div>
                 </div>
