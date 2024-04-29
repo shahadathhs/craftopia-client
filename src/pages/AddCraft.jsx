@@ -31,7 +31,7 @@ const AddCraft = () => {
     }
     console.table(craftData);
     //send data to the server
-    fetch('http://localhost:5000/userCraft', {
+    fetch('https://tenth-a-craftopia-server.vercel.app/userCraft', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

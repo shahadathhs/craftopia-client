@@ -49,7 +49,7 @@ const MyArtCraft = () => {
     })
     .then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/userCraft/${_id}`, {
+        fetch(`https://tenth-a-craftopia-server.vercel.app/userCraft/${_id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())

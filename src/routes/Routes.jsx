@@ -2,22 +2,21 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayouts from "../layouts/MainLayouts";
 import Home from "../pages/Home";
 import ErrorPage from "../pages/ErrorPage";
-import Login from './../pages/Login';
+import Login from "./../pages/Login";
 import Register from "../pages/Register";
 import ArtCraft from "../pages/ArtCraft";
-import AddCraft from './../pages/AddCraft';
+import AddCraft from "./../pages/AddCraft";
 import MyArtCraft from "../pages/MyArtCraft";
 import PrivateRoutes from "./PrivateRoutes";
 import UserCraftDetails from "../pages/UserCraftDetails";
 import UpdateCraft from "../pages/UpdateCraft";
 import CardMaking from "../pages/PaperArt/CardMaking";
-import PaperQuilling from '../pages/PaperArt/PaperQuilling';
-import ScrapBooking from './../pages/PaperArt/ScrapBooking';
-import GlassDying from './../pages/GlassArt/GlassDying';
-import GlassPainting from './../pages/GlassArt/GlassPainting';
+import PaperQuilling from "../pages/PaperArt/PaperQuilling";
+import ScrapBooking from "./../pages/PaperArt/ScrapBooking";
+import GlassDying from "./../pages/GlassArt/GlassDying";
+import GlassPainting from "./../pages/GlassArt/GlassPainting";
 import LampWorking from "../pages/GlassArt/LampWorking";
 import ManualCraftDetails from "../pages/ManualCraftDetails";
-
 
 export const router = createBrowserRouter([
   {
@@ -26,77 +25,94 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Home />,
-        loader: () => fetch('http://localhost:5000/userCraft')
+        loader: () => fetch("https://tenth-a-craftopia-server.vercel.app/userCraft"),
       },
       {
-        path: '/artCraft',
+        path: "/artCraft",
         element: <ArtCraft />,
-        loader: () => fetch('http://localhost:5000/userCraft')
+        loader: () => fetch("https://tenth-a-craftopia-server.vercel.app/userCraft"),
       },
       {
-        path: '/addCraft',
-        element: <PrivateRoutes><AddCraft /></PrivateRoutes>,
-      },
-      { 
-        path: '/myArtCraft',
-        element: <PrivateRoutes><MyArtCraft /></PrivateRoutes>,
-        loader: () => fetch('http://localhost:5000/userCraft')
-      },
-      {
-        path: '/userCraftDetails/:id',
-        element: <PrivateRoutes><UserCraftDetails /></PrivateRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/userCraft/${params.id}`) 
+        path: "/addCraft",
+        element: (
+          <PrivateRoutes>
+            <AddCraft />
+          </PrivateRoutes>
+        ),
       },
       {
-        path: '/updateCraft/:id',
-        element: <PrivateRoutes><UpdateCraft /></PrivateRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/userCraft/${params.id}`) 
+        path: "/myArtCraft",
+        element: (
+          <PrivateRoutes>
+            <MyArtCraft />
+          </PrivateRoutes>
+        ),
+        loader: () => fetch("https://tenth-a-craftopia-server.vercel.app/userCraft"),
       },
       {
-        path: '/login',
+        path: "/userCraftDetails/:id",
+        element: (
+          <PrivateRoutes>
+            <UserCraftDetails />
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) => fetch(`https://tenth-a-craftopia-server.vercel.app/userCraft/${params.id}`),
+      },
+      {
+        path: "/updateCraft/:id",
+        element: (
+          <PrivateRoutes>
+            <UpdateCraft />
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://tenth-a-craftopia-server.vercel.app/userCraft/${params.id}`),
+      },
+      {
+        path: "/login",
         element: <Login />,
       },
       {
-        path: '/register',
+        path: "/register",
         element: <Register />,
       },
       {
-        path: '/cardMaking',
+        path: "/cardMaking",
         element: <CardMaking />,
-        loader: () => fetch('http://localhost:5000/manualCraft')
+        loader: () => fetch("https://tenth-a-craftopia-server.vercel.app/manualCraft"),
       },
       {
-        path: '/paperQuilling',
+        path: "/paperQuilling",
         element: <PaperQuilling />,
-        loader: () => fetch('http://localhost:5000/manualCraft')
+        loader: () => fetch("https://tenth-a-craftopia-server.vercel.app/manualCraft"),
       },
       {
-        path: '/scrapBooking',
+        path: "/scrapBooking",
         element: <ScrapBooking />,
-        loader: () => fetch('http://localhost:5000/manualCraft')
+        loader: () => fetch("https://tenth-a-craftopia-server.vercel.app/manualCraft"),
       },
       {
-        path: '/glassDying',
+        path: "/glassDying",
         element: <GlassDying />,
-        loader: () => fetch('http://localhost:5000/manualCraft')
+        loader: () => fetch("https://tenth-a-craftopia-server.vercel.app/manualCraft"),
       },
       {
-        path: '/glassPainting',
+        path: "/glassPainting",
         element: <GlassPainting />,
-        loader: () => fetch('http://localhost:5000/manualCraft')
+        loader: () => fetch("https://tenth-a-craftopia-server.vercel.app/manualCraft"),
       },
       {
-        path: '/lampWorking',
+        path: "/lampWorking",
         element: <LampWorking />,
-        loader: () => fetch('http://localhost:5000/manualCraft')
+        loader: () => fetch("https://tenth-a-craftopia-server.vercel.app/manualCraft"),
       },
       {
-        path: '/manualCraft/:id',
+        path: "/manualCraft/:id",
         element: <ManualCraftDetails />,
-        loader: ({params}) => fetch(`http://localhost:5000/manualCraft/${params.id}`) 
-      },
-    ]
+        loader: ({ params }) =>fetch(`https://tenth-a-craftopia-server.vercel.app/manualCraft/${params.id}`)
+      }
+    ],
   },
 ]);

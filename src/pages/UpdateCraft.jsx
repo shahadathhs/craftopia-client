@@ -31,7 +31,7 @@ const UpdateCraft = () => {
     }
     console.table(updateCraftData);
     //send data to the server
-    fetch(`http://localhost:5000/userCraft/${_id}`, {
+    fetch(`https://tenth-a-craftopia-server.vercel.app/userCraft/${_id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'
