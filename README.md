@@ -1,70 +1,83 @@
+# Craftopia | Your Crafting Haven
 
-# B9A10Type-02 Requirements
+- Live Site URL: [Craftopia](https://tenth-a-craftopia.web.app/)
 
-# Website Name: "Craftopia"
+- Tools & Technology
+  - HTML
+  - CSS
+  - Tailwind CSS
+  - JavaScript
+  - React.js
+  - React Router
+  - Firebase Authentication
+  - Firebase Hosting
 
-## Live Site URL
-  
-### Client Side
+## How to run locally
 
-<https://tenth-a-craftopia.web.app/>
-  
-### Server Side
+### Prerequisites
 
-<https://tenth-a-craftopia-server.vercel.app/>
+- Node.js (v14 or higher)
 
-### On this website
+### Running the Frontend Locally
 
-#### We used two NPM Package for the challenges task. They are-
+1. **Clone the repository**
 
-  1. Lottie React
-  2. React Simple Typewriter
+   ```bash
+   git clone https://github.com/shahadathhs/craftopia-client
+   ```
 
-#### We used some other NPM Package too. They are-
+2. **Navigate to the project directory**
 
-  1. Prop-types
-  2. React Hot Toast
-  3. React Icons
-  4. React Helmet Async
-  5. Swiper Slider
-  6. React Hook Form
+   ```bash
+   cd craftopia-client
+   ```
 
-#### We have four main pages
-  
-  1. Home Page
-  2. Art & Craft
-  3. Add Craft
-  4. My Art & Craft
+3. **Install dependencies**
 
-### Two of them are private route. They are-
+   ```bash
+   npm install
+   ```
 
-  1. Add Craft
-  2. My Art & Craft
+4. **Create a `.env.local` file in the root directory and add the following environment variables with your own credentials:**
 
-### Features and Characteristics
+   ```env
+   VITE_APIKEY=your_firebase_api_key
+   VITE_AUTHDOMAIN=your_firebase_auth_domain
+   VITE_PID=your_firebase_project_id
+   VITE_STORAGE=your_firebase_storage_bucket
+   VITE_MESSAGE=your_firebase_messaging_sender_id
+   VITE_APPTD=your_firebase_app_id
+   ```
 
-#### Craft Management
-  
-  "Organize, update, delete and track your craft collection effortlessly. Streamline your crafting process and focus on creating beautiful works of art."
+5. **Start the development server**
 
-#### User-Friendly Interface
-  
-  "Navigate seamlessly through our website with an intuitive and easy-to-use interface, designed to provide a smooth browsing experience for users of all levels."
+   ```bash
+   npm run dev
+   ```
 
-#### Responsive Design
-  
-  "Enjoy a seamless browsing experience across devices with our responsive design, ensuring that you can access our website anytime, anywhere, from any device."
+### Running the Backend Locally
 
-#### Craft Details Page
-  
-  "View Details/ Details" Button from any craft card will take you to Craft Details Page, where you will get all details abailable to us."
+- **Visit server repository:** [Server Repository on GitHub](https://github.com/shahadathhs/craftopia-server)
 
-#### Our Work Section
-  
-  "You will see short description about all subcategories of specialized two distinct categories: Paper Crafts and Glass Art. By clicking on a card you will see related Art & Crafts of our store."
 
-#### Craft Item Section
-  
-  "You will see crafts added by user including their owner name and email. You can see details about a craft using view details button"
+## Features
 
-### Overall, you will get smooth and quality performance from our website
+- **Craft Management:** Easily organize, update, delete, and track your crafts.
+- **User-Friendly Interface:** Intuitive and easy-to-use interface for smooth navigation.
+- **Responsive Design:** Seamless browsing on any device.
+- **Craft Details Page:** Detailed information for each craft item.
+- **Our Work Section:** View subcategories of Paper Crafts and Glass Art with related items.
+- **Craft Item Section:** See crafts added by users with owner details.
+
+## Contributing
+
+If you would like to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes.
+4. Submit a pull request.
+
+## Contact
+
+For any inquiries, please reach out to Shahadath Hossen Sajib at <shahadathhossensajib732@gmail.com>.
