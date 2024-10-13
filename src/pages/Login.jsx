@@ -151,7 +151,7 @@ const Login = () => {
             {/* Twitter Login */}
             {/* <br /> */}
             <button 
-              className="btn btn-outline border-2 text-violet-600 hover:bg-orange-500 hover:border-0 hover:text-white"
+              className="btn btn-outline border-2 text-violet-600 hover:bg-orange-500 hover:border-0 hover:text-white hidden"
               onClick={() => handleDirectLogin(twitterLogin)}
             >
               <FaTwitter />Login with Twitter
